@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> </title>
+    <title>...</title>
     <style>
         html,body{
             width: 100%;
@@ -24,6 +24,24 @@
             color: rgb(30,30,30);
         }
     </style>
+    <script>
+        let h1s = document.getElementsByTagName('h1');
+        let removedCount = 0;
+        let goingBack = false;
+
+        function loadingTick(){
+            if(goingBack){
+                h1s[0].innerText = h1s[0].innerText + '.';
+                removedCount--;
+            }else{
+                h1s[0].innerText = h1s[0].innerText.slice(0, -1);
+                removedCount++;
+            }
+            if(removedCount == 0) goingBack = false;
+            if(removedCount == 3) goingBack = true;
+        }
+        setInterval(loadingTick,500);
+    </script>
 </head>
 <body>
 <h1>Something's happening here...</h1>
