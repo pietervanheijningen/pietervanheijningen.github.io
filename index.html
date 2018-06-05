@@ -18,32 +18,35 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
-        h1 {
+        h1,#dots {
             font-family: Calibri, sans-serif;
             color: rgb(30,30,30);
+            font-size: 2em;
+            text-align: center;
         }
     </style>
-    <script>
-        let h1s = document.getElementsByTagName('h1');
-        let removedCount = 0;
-        let goingBack = false;
-
-        function loadingTick(){
-            if(goingBack){
-                h1s[0].innerText = h1s[0].innerText + '.';
-                removedCount--;
-            }else{
-                h1s[0].innerText = h1s[0].innerText.slice(0, -1);
-                removedCount++;
-            }
-            if(removedCount == 0) goingBack = false;
-            if(removedCount == 3) goingBack = true;
-        }
-        setInterval(loadingTick,500);
-    </script>
 </head>
 <body>
-<h1>Something's happening here...</h1>
+<h1>Something's happening here</h1><br><p id="dots">...........</p>
+<script>
+    let dots = document.getElementById('dots');
+    let removedCount = 0;
+    let goingBack = false;
+
+    function loadingTick(){
+        if(goingBack){
+            dots.innerText = dots.innerText + '.';
+            removedCount--;
+        }else{
+            dots.innerText = dots.innerText.slice(0, -1);
+            removedCount++;
+        }
+        if(removedCount == 0) goingBack = false;
+        if(removedCount == 10) goingBack = true;
+    }
+    setInterval(loadingTick,200);
+</script>
 </body>
 </html>
