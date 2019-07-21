@@ -7,51 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>...</title>
     <style>
-        html,body{
+        html, body {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: rgb(240,240,240);
+            background-color: rgb(240, 240, 240);
             -webkit-touch-callout: none; /* iOS Safari */
             -webkit-user-select: none; /* Safari */
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none;
         }
-        body{
+
+        body {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
         }
-        h1,#dots {
+
+        h1, #dots {
             font-family: Calibri, sans-serif;
-            color: rgb(30,30,30);
+            color: rgb(30, 30, 30);
             font-size: 2em;
             text-align: center;
         }
     </style>
 </head>
 <body>
-<h1>something's happening here</h1><p id="dots">...........</p>
+<h1>something's happening here</h1>
+<p id="dots">...........</p>
+<form onsubmit="renderHtml()" action="/">
+    <input type="text" id="htmlinput">
+</form>
 <script>
     let dots = document.getElementById('dots');
     let removedCount = 0;
     let goingBack = false;
 
-    function loadingTick(){
-        if(goingBack){
+    function loadingTick() {
+        if (goingBack) {
             dots.innerText = dots.innerText + '.';
             removedCount--;
-        }else{
+        } else {
             dots.innerText = dots.innerText.slice(0, -1);
             removedCount++;
         }
-        if(removedCount == 0) goingBack = false;
-        if(removedCount == 10) goingBack = true;
+        if (removedCount === 0) goingBack = false;
+        if (removedCount === 10) goingBack = true;
     }
-    setInterval(loadingTick,200);
+
+    setInterval(loadingTick, 200);
+
+    function renderHtml() {
+        document.write(document.getElementById('htmlinput').value);
+    }
 </script>
 </body>
 </html>
