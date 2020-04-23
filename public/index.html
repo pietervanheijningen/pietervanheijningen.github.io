@@ -27,16 +27,23 @@
             flex-direction: column;
         }
 
-        h1, #dots {
+        h1, #dots, .vidlink {
             font-family: Calibri, sans-serif;
             color: rgb(30, 30, 30);
             font-size: 2em;
             text-align: center;
         }
+
+	.vidlink {
+	    font-size: 0.125em;
+	    text-decoration: none;
+	}
     </style>
 </head>
 <body>
-<h1>something's happening here</h1>
+<h1>something's happening here
+<a class="vidlink" href="/vid">📺</a>
+</h1>
 <p id="dots">...........</p>
 <form onsubmit="renderHtml()" action="/">
     <input type="text" id="htmlinput" autocomplete="off">
